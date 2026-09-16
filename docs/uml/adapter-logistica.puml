@@ -1,0 +1,35 @@
+@startuml
+
+title Patrón Adapter en AgroConecta
+
+interface ServicioEnvio {
+    + calcularCosto(origen: String, destino: String, peso: double): double
+}
+
+class LogisticaService {
+    - servicioEnvio: ServicioEnvio
+    + LogisticaService(servicioEnvio: ServicioEnvio)
+    + cotizar(origen: String, destino: String, peso: double): double
+}
+
+class RapidExpressAdapter {
+    - rapidExpressAPI: RapidExpressAPI
+    + RapidExpressAdapter(api: RapidExpressAPI)
+    + calcularCosto(origen: String, destino: String, peso: double): double
+}
+
+class RapidExpressAPI {
+    + getShippingPrice(route: String, weightInGrams: int): double
+}
+
+LogisticaService --> ServicioEnvio : utiliza
+RapidExpressAdapter ..|> ServicioEnvio : implementa
+RapidExpressAdapter *-- RapidExpressAPI : adapta
+
+note right of RapidExpressAdapter
+Convierte:
+- origen y destino en ruta
+- kilogramos en gramos
+end note
+
+@enduml

@@ -1,4 +1,5 @@
 package Integracion_con_proveedores;
+@Deprecated
 public class LogisticaServiceAjustado {
 
     private ServicioEnvio proveedorLocal;

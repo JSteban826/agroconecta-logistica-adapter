@@ -1,12 +1,32 @@
-Requisitos:
-- JDK 17 o superior
-- IDE recomendado: IntelliJ IDEA, Eclipse o VS Code
+# AgroConecta - Integración de proveedores logísticos
 
-Actividad:
-1. Importe el código.
-2. El archivo LogisticaServiceAjustado.java se refiere al archivo base LogisticaService despues de modificado
-2. Compruebe que compile.
-3. No modifique inicialmente el proyecto.
-4. Analice su estructura.
-5. Construya pruebas que documenten el comportamiento actual.
-6. Realice la ruta indicada en el documento principal.
+## Descripción
+
+Proyecto académico para analizar y refactorizar la integración de proveedores logísticos con interfaces incompatibles.
+
+## Requisitos
+
+- JDK 17 o superior
+- Maven 3.9 o superior
+- IntelliJ IDEA, Eclipse o VS Code
+- JUnit 5
+
+## Problema identificado
+
+La versión ajustada de LogisticaService conoce directamente las API externas, selecciona proveedores mediante condicionales y realiza conversiones de datos.
+
+## Solución
+
+Se aplicó el patrón estructural Adapter. Cada API incompatible es envuelta por una clase que implementa la interfaz ServicioEnvio.
+
+## Participantes
+
+- Target: ServicioEnvio
+- Client: LogisticaService
+- Adapter: RapidExpressAdapter
+- Adaptee: RapidExpressAPI
+
+## Ejecutar pruebas
+
+```bash
+mvn test
