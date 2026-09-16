@@ -1,11 +1,11 @@
 package Integracion_con_proveedores;
+
 public class LogisticaService {
 
     private final ServicioEnvio servicioEnvio;
 
     public LogisticaService(
             ServicioEnvio servicioEnvio) {
-
         this.servicioEnvio = servicioEnvio;
     }
 
@@ -15,9 +15,9 @@ public class LogisticaService {
             double peso) {
 
         return servicioEnvio.calcularCosto(
-            origen,
-            destino,
-            peso
+                origen,
+                destino,
+                peso
         );
     }
 }
