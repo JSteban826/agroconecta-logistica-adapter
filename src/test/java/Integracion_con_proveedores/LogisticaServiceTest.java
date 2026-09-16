@@ -23,4 +23,24 @@ class LogisticaServiceTest {
 
         assertEquals(6000.0, resultado, 0.001);
     }
+
+    @Test
+    void debeCotizarConRapidExpressSinModificarLaLogicaPrincipal() {
+        ServicioEnvio rapidExpress =
+                new RapidExpressAdapter(
+                        new RapidExpressAPI()
+                );
+
+        LogisticaService logisticaService =
+                new LogisticaService(rapidExpress);
+
+        double resultado =
+                logisticaService.cotizar(
+                        "Fusagasuga",
+                        "Bogota",
+                        2.0
+                );
+
+        assertEquals(5.0, resultado, 0.001);
+    }
 }

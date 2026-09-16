@@ -30,4 +30,28 @@ public class RapidExpressAdapter implements ServicioEnvio {
                 pesoEnGramos
         );
     }
+
+    private void validarDatos(
+            String origen,
+            String destino,
+            double peso) {
+
+        if (origen == null || origen.isBlank()) {
+            throw new IllegalArgumentException(
+                    "El origen es obligatorio"
+            );
+        }
+
+        if (destino == null || destino.isBlank()) {
+            throw new IllegalArgumentException(
+                    "El destino es obligatorio"
+            );
+        }
+
+        if (peso <= 0) {
+            throw new IllegalArgumentException(
+                    "El peso debe ser mayor que cero"
+            );
+        }
+    }
 }
