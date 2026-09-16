@@ -22,6 +22,8 @@ public class RapidExpressAdapter implements ServicioEnvio {
             String destino,
             double peso) {
 
+        validarDatos(origen, destino, peso);
+
         String ruta = origen + "-" + destino;
         int pesoEnGramos = (int) (peso * 1000);
 
