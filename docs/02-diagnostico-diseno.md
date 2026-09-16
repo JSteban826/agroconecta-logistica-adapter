@@ -69,3 +69,7 @@ La lógica principal debe depender de ServicioEnvio, no directamente de RapidExp
 ## Composición sobre herencia
 
 La adaptación debe realizarse componiendo un adaptador con una instancia de RapidExpressAPI, debido a que la librería externa no se puede modificar.
+
+## Dependencias no inicializadas
+
+LogisticaServiceAjustado declara las dependencias proveedorLocal y rapidExpress, pero no proporciona constructor ni métodos de configuración. Por tanto, una instancia creada mediante new LogisticaServiceAjustado() contiene dependencias nulas y no puede realizar una cotización correctamente.
